@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OfficeLingo 10 — MPLB English Hub | SMKN 10 Jeneponto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+
+    /* 3D Flip Card Styles */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    /* Floating Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes floatDelay {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+    .animate-float-delay {
+      animation: floatDelay 5s ease-in-out 1.5s infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-indigo-100 selection:text-indigo-800">
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ================= LOGIN PAGE (SPLIT SCREEN) ================= -->
+  <section id="login-view" class="min-h-screen flex flex-col lg:flex-row">
+    <!-- Left Visual Hero Panel -->
+    <div class="lg:w-1/2 bg-gradient-to-br from-indigo-900 via-blue-800 to-teal-700 text-white p-8 lg:p-14 flex flex-col justify-between relative overflow-hidden">
+      <!-- Decorative Circles -->
+      <div class="absolute -top-24 -left-24 w-80 h-80 bg-white/10 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-10 -right-20 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"></div>
+
+      <!-- School & Database Header -->
+      <div class="relative z-10 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-2xl shadow-lg">
+            🏢
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-teal-300 block">SMKN 10 JENEPONTO</span>
+            <h1 class="text-xl font-extrabold tracking-tight">OfficeLingo 10</h1>
+          </div>
+        </div>
+        <div class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-300/30 backdrop-blur-md flex items-center gap-2 text-xs font-semibold text-emerald-100">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          DB_MPLB_SKATEN10_ENG
+        </div>
+      </div>
+
+      <!-- Center Illustration & Value Proposition -->
+      <div class="relative z-10 my-10 lg:my-0">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-amber-300 mb-5">
+          ✨ Kelas XI • Manajemen Perkantoran & Layanan Bisnis (MPLB)
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
+          Kuasai Bahasa Inggris Dunia Kerja & Perkantoran!
+        </h2>
+        <p class="text-blue-100 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
+          Media belajar interaktif khusus siswa MPLB SMKN 10 Jeneponto. Hafalkan kosakata kantor dengan kartu 3D & audio, mainkan mini-games seru, dan selesaikan tantangan harian!
+        </p>
+
+        <!-- Floating Office Preview Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
+          <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 animate-float">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-9 h-9 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-bold text-lg">🔊</span>
+              <div>
+                <p class="font-bold text-sm">3D Audio Flashcards</p>
+                <p class="text-xs text-blue-200">Pelafalan Native + Arti</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 animate-float-delay">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-9 h-9 rounded-xl bg-teal-400 text-slate-900 flex items-center justify-center font-bold text-lg">🏆</span>
+              <div>
+                <p class="font-bold text-sm">Games & XP Leveling</p>
+                <p class="text-xs text-blue-200">Belajar sambil bermain</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="relative z-10 text-xs text-blue-200/80 flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-white/15">
+        <span>© 2026 SMKN 10 Jeneponto — Jurusan MPLB</span>
+        <span>Database Aktif & Tersinkronisasi</span>
+      </div>
+    </div>
+
+    <!-- Right Login Form Panel -->
+    <div class="lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-slate-50">
+      <div class="w-full max-w-md bg-white rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-100 p-8">
+        <div class="mb-6">
+          <h3 class="text-2xl font-extrabold text-slate-900">Selamat Datang 👋</h3>
+          <p class="text-sm text-slate-500 mt-1">Pilih peran Anda dan masuk ke portal pembelajaran MPLB.</p>
+        </div>
+
+        <!-- Role Switcher Tabs -->
+        <div class="grid grid-cols-2 gap-2 p-1.5 bg-slate-100 rounded-2xl mb-6">
+          <button type="button" id="role-btn-siswa" onclick="selectLoginRole('siswa')"
+            class="py-2.5 px-4 rounded-xl text-sm font-bold transition-all bg-white text-indigo-700 shadow-sm flex items-center justify-center gap-2">
+            🎓 Siswa MPLB
+          </button>
+          <button type="button" id="role-btn-guru" onclick="selectLoginRole('guru')"
+            class="py-2.5 px-4 rounded-xl text-sm font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2">
+            👩‍🏫 Guru Pengajar
+          </button>
+        </div>
+
+        <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+          <!-- Student Full Name Input (Only visible for Siswa) -->
+          <div id="student-name-group">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Nama Lengkap Siswa</label>
+            <input type="text" id="login-fullname" placeholder="Contoh: Andi Nurul Hikmah"
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none text-sm font-medium transition" />
+            <p class="text-[11px] text-slate-400 mt-1">*Nama akan tercatat pada rekap nilai & tugas guru.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Username</label>
+            <input type="text" id="login-username" required placeholder="Masukkan username..."
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none text-sm font-medium transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Password</label>
+            <input type="password" id="login-password" required placeholder="Masukkan password..."
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none text-sm font-medium transition" />
+          </div>
+
+          <div id="login-error" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold"></div>
+
+          <button type="submit"
+            class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-sm shadow-lg shadow-indigo-600/25 transition transform active:scale-[0.99]">
+            Masuk ke Aplikasi →
+          </button>
+        </form>
+
+        <!-- Quick Demo Login Buttons -->
+        <div class="mt-6 pt-6 border-t border-slate-100">
+          <p class="text-xs font-semibold text-slate-400 text-center mb-3">Akses Cepat (1-Klik Demo)</p>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" onclick="quickDemoLogin('siswa')"
+              class="py-2.5 px-3 rounded-xl border border-indigo-200 bg-indigo-50/70 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition flex items-center justify-center gap-1.5">
+              ⚡ Demo Siswa
+            </button>
+            <button type="button" onclick="quickDemoLogin('guru')"
+              class="py-2.5 px-3 rounded-xl border border-teal-200 bg-teal-50/70 hover:bg-teal-100 text-teal-700 text-xs font-bold transition flex items-center justify-center gap-1.5">
+              ⚡ Demo Guru
+            </button>
+          </div>
+          <div class="mt-3 text-[11px] text-slate-400 text-center space-y-0.5">
+            <p>Akun Siswa: <code class="text-slate-600 font-semibold">Siswa_skaten</code> / <code class="text-slate-600 font-semibold">Siswa_skaten</code></p>
+            <p>Akun Guru: <code class="text-slate-600 font-semibold">Guru_skaten</code> / <code class="text-slate-600 font-semibold">Guru_skaten</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN APP SHELL ================= -->
+  <div id="app-shell" class="hidden min-h-screen flex flex-col">
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80 no-print">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <!-- Brand -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-teal-500 text-white flex items-center justify-center font-extrabold text-lg shadow-md">
+            🏢
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-slate-900 text-base tracking-tight">OfficeLingo 10</span>
+              <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> DB_MPLB_SKATEN10_ENG
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium">SMKN 10 Jeneponto • Kelas XI MPLB</p>
+          </div>
+        </div>
+
+        <!-- User Info & Gamification Stats -->
+        <div class="flex items-center gap-3">
+          <!-- Student XP & Level Pill -->
+          <div id="header-student-stats" class="hidden sm:flex items-center gap-2 bg-amber-50 border border-amber-200/80 px-3 py-1.5 rounded-full">
+            <span class="text-sm">⭐</span>
+            <span id="header-xp" class="text-xs font-extrabold text-amber-800">0 XP</span>
+            <span class="text-amber-300">|</span>
+            <span id="header-level" class="text-xs font-bold text-indigo-700">Office Rookie</span>
+          </div>
+
+          <div class="text-right hidden md:block">
+            <p id="header-user-name" class="text-xs font-extrabold text-slate-800">User</p>
+            <p id="header-user-role" class="text-[11px] font-semibold text-indigo-600">Role</p>
+          </div>
+
+          <button onclick="logout()"
+            class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-600 text-xs font-bold transition flex items-center gap-1.5">
+            <span>Keluar</span> 🚪
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= STUDENT WORKSPACE ================= -->
+    <main id="student-workspace" class="hidden flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+      <!-- Student Hero Banner -->
+      <div class="bg-gradient-to-r from-indigo-700 via-blue-700 to-teal-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-indigo-900/10 mb-6 relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-bold text-teal-200 mb-2">
+              SMKN 10 Jeneponto • Jurusan Manajemen Perkantoran & Layanan Bisnis
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold">Halo, <span id="banner-student-name">Siswa</span>! 👋</h2>
+            <p class="text-blue-100 text-sm mt-1 max-w-xl">
+              Klik kartu kosakata untuk membalik arti, dengarkan cara bacanya, dan kumpulkan XP dengan menyelesaikan game & kuis!
+            </p>
+          </div>
+
+          <!-- Progress Card -->
+          <div class="bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl p-4 min-w-[260px]">
+            <div class="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span>Target Hafalan Kosakata</span>
+              <span id="vocab-progress-text">0 / 0 Kata</span>
+            </div>
+            <div class="w-full h-2.5 bg-black/20 rounded-full overflow-hidden mb-3">
+              <div id="vocab-progress-bar" class="h-full bg-amber-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-blue-100">Level Saat Ini:</span>
+              <span id="banner-level" class="font-extrabold text-amber-300">Office Rookie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Navigation Tabs -->
+      <div class="flex overflow-x-auto gap-2 pb-2 mb-6 no-scrollbar">
+        <button onclick="switchStudentTab('vocab')" id="stab-vocab"
+          class="student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-indigo-600 text-white shadow-md shadow-indigo-600/20">
+          📇 Kosakata 3D
+        </button>
+        <button onclick="switchStudentTab('materials')" id="stab-materials"
+          class="student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+          📚 Materi & Tugas
+        </button>
+        <button onclick="switchStudentTab('games')" id="stab-games"
+          class="student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+          🎮 Mini Games
+        </button>
+        <button onclick="switchStudentTab('quiz')" id="stab-quiz"
+          class="student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+          📝 Kuis Evaluasi
+        </button>
+        <button onclick="switchStudentTab('scores')" id="stab-scores"
+          class="student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+          🏆 Nilai Saya
+        </button>
+      </div>
+
+      <!-- TAB 1: 3D VOCABULARY FLASHCARDS -->
+      <div id="spanel-vocab" class="student-panel">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h3 class="text-xl font-extrabold text-slate-900">Kosakata Perkantoran & Layanan Bisnis</h3>
+            <p class="text-sm text-slate-500">Klik kartu untuk membalik (Bahasa Inggris ↔ Bahasa Indonesia) & klik ikon speaker untuk mendengar pengucapan.</p>
+          </div>
+          <!-- Category Filter -->
+          <div class="flex flex-wrap gap-2" id="vocab-category-filters">
+            <button onclick="filterVocab('ALL')" class="vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white">Semua</button>
+            <button onclick="filterVocab('Office Equipment')" class="vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200">Peralatan Kantor</button>
+            <button onclick="filterVocab('Business Correspondence')" class="vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200">Surat & Dokumen</button>
+            <button onclick="filterVocab('Guest & Telephone')" class="vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200">Tamu & Telepon</button>
+            <button onclick="filterVocab('Meeting & Schedule')" class="vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200">Rapat & Jadwal</button>
+          </div>
+        </div>
+
+        <div id="vocab-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- TAB 2: MATERIALS & ASSIGNMENTS -->
+      <div id="spanel-materials" class="student-panel hidden">
+        <div class="mb-6">
+          <h3 class="text-xl font-extrabold text-slate-900">Materi Ajar & Tugas Praktik MPLB</h3>
+          <p class="text-sm text-slate-500">Pelajari ungkapan bahasa Inggris dunia kerja lalu kerjakan tugas praktik di bawah masing-masing materi.</p>
+        </div>
+        <div id="student-materials-list" class="space-y-6">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- TAB 3: MINI GAMES -->
+      <div id="spanel-games" class="student-panel hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- GAME 1: WORD MATCH -->
+          <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 text-xs font-bold">Game 1 • +50 XP</span>
+                <h3 class="text-lg font-extrabold text-slate-900 mt-1">Office Word Match</h3>
+                <p class="text-xs text-slate-500">Klik istilah Bahasa Inggris di kiri, lalu klik arti Bahasa Indonesianya di kanan!</p>
+              </div>
+              <button onclick="initMatchGame()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">
+                🔄 Acak Ulang
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 my-4">
+              <div id="match-en-col" class="space-y-2.5"></div>
+              <div id="match-id-col" class="space-y-2.5"></div>
+            </div>
+
+            <div id="match-game-status" class="p-3 rounded-2xl bg-slate-50 text-center text-xs font-bold text-slate-600">
+              Pasangkan semua 5 kosakata kantor!
+            </div>
+          </div>
+
+          <!-- GAME 2: SENTENCE BUILDER -->
+          <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-700 text-xs font-bold">Game 2 • +50 XP</span>
+                <h3 class="text-lg font-extrabold text-slate-900 mt-1">Susun Kalimat Layanan Bisnis</h3>
+                <p class="text-xs text-slate-500">Susun kata-kata acak berikut menjadi kalimat perkantoran yang sopan dan benar.</p>
+              </div>
+              <button onclick="nextScrambleQuestion()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">
+                Soal Berikutnya →
+              </button>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 mb-4">
+              <p class="text-[11px] font-bold uppercase text-amber-700">Arti Kalimat yang Dituju:</p>
+              <p id="scramble-hint-id" class="text-sm font-bold text-slate-800 mt-0.5">...</p>
+            </div>
+
+            <!-- Answer Drop Zone -->
+            <div class="mb-3">
+              <p class="text-xs font-bold text-slate-500 mb-1.5">Susunan Kalimat Anda (klik kata untuk menghapus):</p>
+              <div id="scramble-answer-box" class="min-h-[56px] p-3 rounded-2xl bg-indigo-50/60 border-2 border-dashed border-indigo-200 flex flex-wrap gap-2 items-center">
+              </div>
+            </div>
+
+            <!-- Word Bank -->
+            <div class="mb-4">
+              <p class="text-xs font-bold text-slate-500 mb-1.5">Pilihan Kata:</p>
+              <div id="scramble-bank-box" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="flex gap-2">
+              <button onclick="checkScrambleAnswer()" class="flex-1 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-md shadow-teal-600/20 transition">
+                Periksa Kalimat ✓
+              </button>
+              <button onclick="resetCurrentScramble()" class="px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs">
+                Reset
+              </button>
+            </div>
+            <div id="scramble-feedback" class="hidden mt-3 p-3 rounded-xl text-xs font-bold text-center"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: INTERACTIVE QUIZ -->
+      <div id="spanel-quiz" class="student-panel hidden">
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6">
+            <div>
+              <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold">Asesmen Formatif MPLB</span>
+              <h3 class="text-xl font-extrabold text-slate-900 mt-1">Kuis Bahasa Inggris Perkantoran</h3>
+            </div>
+            <button onclick="startQuiz()" class="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition">
+              🔄 Mulai Ulang Kuis
+            </button>
+          </div>
+
+          <div id="quiz-container">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: STUDENT SCORES & HISTORY -->
+      <div id="spanel-scores" class="student-panel hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-white p-5 rounded-3xl border border-slate-200/80">
+            <p class="text-xs font-bold text-slate-400 uppercase">Total XP & Level</p>
+            <p id="score-card-xp" class="text-2xl font-extrabold text-indigo-600 mt-1">0 XP</p>
+            <p id="score-card-level" class="text-xs font-semibold text-slate-600 mt-0.5">Office Rookie</p>
+          </div>
+          <div class="bg-white p-5 rounded-3xl border border-slate-200/80">
+            <p class="text-xs font-bold text-slate-400 uppercase">Rata-Rata Nilai Kuis</p>
+            <p id="score-card-quiz-avg" class="text-2xl font-extrabold text-teal-600 mt-1">-</p>
+            <p class="text-xs font-semibold text-slate-600 mt-0.5">Tersimpan di Database</p>
+          </div>
+          <div class="bg-white p-5 rounded-3xl border border-slate-200/80">
+            <p class="text-xs font-bold text-slate-400 uppercase">Tugas Terkirim</p>
+            <p id="score-card-tasks" class="text-2xl font-extrabold text-amber-600 mt-1">0 Tugas</p>
+            <p class="text-xs font-semibold text-slate-600 mt-0.5">Cek nilai dari Guru</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-6">
+          <h4 class="text-base font-extrabold text-slate-900 mb-4">Riwayat Nilai Kuis & Tugas Saya</h4>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-xs font-bold text-slate-500 uppercase">
+                  <th class="py-3 px-4">Jenis Aktivitas</th>
+                  <th class="py-3 px-4">Judul / Keterangan</th>
+                  <th class="py-3 px-4">Waktu</th>
+                  <th class="py-3 px-4">Skor / Nilai</th>
+                  <th class="py-3 px-4">Catatan Guru</th>
+                </tr>
+              </thead>
+              <tbody id="student-history-tbody" class="text-sm divide-y divide-slate-100">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= TEACHER WORKSPACE ================= -->
+    <main id="teacher-workspace" class="hidden flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+      <!-- Teacher Top Overview Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">📇</div>
+          <div>
+            <p class="text-xs font-bold text-slate-400 uppercase">Bank Kosakata</p>
+            <p id="t-stat-vocab" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl">📚</div>
+          <div>
+            <p class="text-xs font-bold text-slate-400 uppercase">Materi & Tugas</p>
+            <p id="t-stat-materials" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl">📥</div>
+          <div>
+            <p class="text-xs font-bold text-slate-400 uppercase">Tugas Masuk</p>
+            <p id="t-stat-submissions" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">📊</div>
+          <div>
+            <p class="text-xs font-bold text-slate-400 uppercase">Rata-Rata Kuis</p>
+            <p id="t-stat-avg" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher Navigation Tabs -->
+      <div class="flex overflow-x-auto gap-2 pb-2 mb-6 no-print">
+        <button onclick="switchTeacherTab('grades')" id="ttab-grades"
+          class="teacher-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition bg-indigo-600 text-white shadow-md">
+          📊 Rekap Nilai & Koreksi Tugas
+        </button>
+        <button onclick="switchTeacherTab('materials')" id="ttab-materials"
+          class="teacher-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200">
+          📚 Kelola Materi & Tugas
+        </button>
+        <button onclick="switchTeacherTab('vocab')" id="ttab-vocab"
+          class="teacher-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200">
+          📇 Kelola Kosakata MPLB
+        </button>
+        <button onclick="switchTeacherTab('quiz')" id="ttab-quiz"
+          class="teacher-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200">
+          📝 Kelola Bank Soal Kuis
+        </button>
+      </div>
+
+      <!-- TEACHER TAB 1: GRADES & SUBMISSIONS -->
+      <div id="tpanel-grades" class="teacher-panel space-y-6">
+        <!-- Student Submissions Grading -->
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900">Jawaban Tugas Siswa (Perlu Penilaian)</h3>
+              <p class="text-xs text-slate-500">Berikan nilai (0–100) dan umpan balik langsung untuk siswa Kelas XI MPLB.</p>
+            </div>
+          </div>
+          <div id="teacher-submissions-list" class="space-y-4">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Quiz Score Recap Table -->
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900">Rekapitulasi Nilai Kuis Siswa — SMKN 10 Jeneponto</h3>
+              <p class="text-xs text-slate-500">Data tersimpan otomatis pada database lokal <code class="font-bold text-indigo-600">DB_MPLB_SKATEN10_ENG</code>.</p>
+            </div>
+            <div class="flex gap-2 no-print">
+              <button onclick="exportGradesCSV()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">
+                ⬇️ Unduh CSV
+              </button>
+              <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold transition">
+                🖨️ Cetak Laporan
+              </button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-xs font-bold text-slate-500 uppercase bg-slate-50">
+                  <th class="py-3 px-4 rounded-tl-xl">Nama Siswa</th>
+                  <th class="py-3 px-4">Waktu Pengerjaan</th>
+                  <th class="py-3 px-4">Jawaban Benar</th>
+                  <th class="py-3 px-4">Nilai Akhir</th>
+                  <th class="py-3 px-4 rounded-tr-xl">Status Ketuntasan</th>
+                </tr>
+              </thead>
+              <tbody id="teacher-quiz-tbody" class="text-sm divide-y divide-slate-100">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEACHER TAB 2: MANAGE MATERIALS -->
+      <div id="tpanel-materials" class="teacher-panel hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm h-fit">
+            <h3 class="text-base font-extrabold text-slate-900 mb-4">+ Tambah Materi & Tugas Baru</h3>
+            <form onsubmit="addMaterial(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Judul Topik / Bab</label>
+                <input type="text" id="mat-title" required placeholder="Contoh: Handling Incoming Calls"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Kompetensi MPLB</label>
+                <input type="text" id="mat-topic" required placeholder="Contoh: Layanan Pelanggan & Telepon"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Ringkasan Materi & Contoh Ungkapan</label>
+                <textarea id="mat-content" rows="4" required placeholder="Tuliskan penjelasan singkat + contoh kalimat bahasa Inggris & artinya..."
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500"></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Instruksi Tugas Siswa</label>
+                <textarea id="mat-task" rows="2" required placeholder="Contoh: Buatlah 3 kalimat menerima telepon kantor dalam bahasa Inggris!"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500"></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md">
+                Simpan & Publikasikan Materi
+              </button>
+            </form>
+          </div>
+
+          <div class="lg:col-span-2 space-y-4" id="teacher-materials-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TEACHER TAB 3: MANAGE VOCABULARY -->
+      <div id="tpanel-vocab" class="teacher-panel hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm h-fit">
+            <h3 class="text-base font-extrabold text-slate-900 mb-4">+ Tambah Kosakata Jurusan</h3>
+            <form onsubmit="addVocabulary(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Kategori Bidang MPLB</label>
+                <select id="voc-cat" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500">
+                  <option value="Office Equipment">Office Equipment (Peralatan Kantor)</option>
+                  <option value="Business Correspondence">Business Correspondence (Surat & Dokumen)</option>
+                  <option value="Guest & Telephone">Guest & Telephone (Tamu & Telepon)</option>
+                  <option value="Meeting & Schedule">Meeting & Schedule (Rapat & Jadwal)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Istilah Bahasa Inggris</label>
+                <input type="text" id="voc-en" required placeholder="Contoh: Filing Cabinet"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Cara Baca (Fonetik Sederhana)</label>
+                <input type="text" id="voc-phonetic" required placeholder="Contoh: /ˈfaɪ.lɪŋ ˈkæb.ɪ.nət/"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Arti Bahasa Indonesia</label>
+                <input type="text" id="voc-id" required placeholder="Contoh: Lemari Arsip"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Contoh Kalimat Perkantoran</label>
+                <input type="text" id="voc-ex" required placeholder="Contoh: Please put the report in the filing cabinet."
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-md">
+                Tambahkan ke Flashcard 3D
+              </button>
+            </form>
+          </div>
+
+          <div class="lg:col-span-2 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
+            <h3 class="text-base font-extrabold text-slate-900 mb-4">Daftar Kosakata Aktif (<span id="voc-count-label">0</span> Kata)</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 text-xs font-bold text-slate-500 uppercase">
+                    <th class="py-2.5 px-3">English</th>
+                    <th class="py-2.5 px-3">Indonesia</th>
+                    <th class="py-2.5 px-3">Kategori</th>
+                    <th class="py-2.5 px-3 text-right">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="teacher-vocab-tbody" class="text-sm divide-y divide-slate-100"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEACHER TAB 4: MANAGE QUIZ -->
+      <div id="tpanel-quiz" class="teacher-panel hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm h-fit">
+            <h3 class="text-base font-extrabold text-slate-900 mb-4">+ Tambah Soal Kuis Baru</h3>
+            <form onsubmit="addQuizQuestion(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Pertanyaan (Bahasa Inggris)</label>
+                <textarea id="qz-q" rows="2" required placeholder="Contoh: What do you say when answering an office phone?"
+                  class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500"></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Bantuan Terjemahan Soal (Bahasa Indonesia)</label>
+                <input type="text" id="qz-trans" required placeholder="Contoh: Apa yang Anda katakan saat mengangkat telepon kantor?"
+                  class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:border-indigo-500" />
+              </div>
+              <div class="grid grid-cols-1 gap-2">
+                <input type="text" id="qz-opt0" required placeholder="Pilihan A" class="px-3 py-2 rounded-xl border border-slate-200 text-xs" />
+                <input type="text" id="qz-opt1" required placeholder="Pilihan B" class="px-3 py-2 rounded-xl border border-slate-200 text-xs" />
+                <input type="text" id="qz-opt2" required placeholder="Pilihan C" class="px-3 py-2 rounded-xl border border-slate-200 text-xs" />
+                <input type="text" id="qz-opt3" required placeholder="Pilihan D" class="px-3 py-2 rounded-xl border border-slate-200 text-xs" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Kunci Jawaban Benar</label>
+                <select id="qz-ans" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm">
+                  <option value="0">Pilihan A</option>
+                  <option value="1">Pilihan B</option>
+                  <option value="2">Pilihan C</option>
+                  <option value="3">Pilihan D</option>
+                </select>
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md">
+                Simpan Soal ke Bank Kuis
+              </button>
+            </form>
+          </div>
+
+          <div class="lg:col-span-2 space-y-3" id="teacher-quiz-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= APPLICATION JAVASCRIPT & DATABASE ================= -->
+  <script>
+    const DB_KEY = 'DB_MPLB_SKATEN10_ENG';
+
+    // Default Seed Data tailored for SMKN 10 Jeneponto - Grade XI MPLB
+    const DEFAULT_DB = {
+      vocabularies: [
+        { id: 1, category: 'Office Equipment', en: 'Filing Cabinet', phonetic: '/ˈfaɪ.lɪŋ ˈkæb.ɪ.nət/', idText: 'Lemari Arsip', example: 'Please store the employee contracts in the filing cabinet.' },
+        { id: 2, category: 'Office Equipment', en: 'Paper Shredder', phonetic: '/ˈpeɪ.pər ˌʃred.ər/', idText: 'Mesin Penghancur Kertas', example: 'Use the paper shredder to destroy confidential documents.' },
+        { id: 3, category: 'Office Equipment', en: 'Photocopier', phonetic: '/ˈfəʊ.təʊˌkɒp.i.ər/', idText: 'Mesin Fotokopi', example: 'Could you make ten copies using the photocopier?' },
+        { id: 4, category: 'Business Correspondence', en: 'Invoice', phonetic: '/ˈɪn.vɔɪs/', idText: 'Faktur / Tagihan Pembayaran', example: 'The secretary sent the invoice to the client by email.' },
+        { id: 5, category: 'Business Correspondence', en: 'Minutes of Meeting', phonetic: '/ˈmɪn.ɪts əv ˈmiː.tɪŋ/', idText: 'Notulen Rapat', example: 'Rina is typing the minutes of meeting for the manager.' },
+        { id: 6, category: 'Business Correspondence', en: 'Attachment', phonetic: '/əˈtætʃ.mənt/', idText: 'Lampiran Dokumen / Email', example: 'Please check the PDF attachment in my email.' },
+        { id: 7, category: 'Guest & Telephone', en: 'Receptionist', phonetic: '/rɪˈsep.ʃən.ɪst/', idText: 'Resepsionis / Penerima Tamu', example: 'The receptionist greeted the visitors politely.' },
+        { id: 8, category: 'Guest & Telephone', en: 'Appointment', phonetic: '/əˈpɔɪnt.mənt/', idText: 'Janji Temu Bisnis', example: 'Do you have an appointment with the director today?' },
+        { id: 9, category: 'Guest & Telephone', en: 'Hold the line', phonetic: '/həʊld ðə laɪn/', idText: 'Mohon tunggu sebentar (di telepon)', example: 'Please hold the line while I connect you to Mr. Budi.' },
+        { id: 10, category: 'Meeting & Schedule', en: 'Itinerary', phonetic: '/aɪˈtɪn.ər.ər.i/', idText: 'Rencana Perjalanan Dinas', example: 'I have prepared the manager’s travel itinerary to Makassar.' },
+        { id: 11, category: 'Meeting & Schedule', en: 'Postpone', phonetic: '/pəʊstˈpəʊn/', idText: 'Menunda Jadwal / Rapat', example: 'We have to postpone the meeting until tomorrow morning.' },
+        { id: 12, category: 'Meeting & Schedule', en: 'Headquarters', phonetic: '/ˌhedˈkwɔː.təz/', idText: 'Kantor Pusat', example: 'Our company headquarters is located in Jakarta.' }
+      ],
+      materials: [
+        {
+          id: 101,
+          title: 'Unit 1: Handling Office Telephone Calls (Menangani Telepon Kantor)',
+          topic: 'Komunikasi Telepon & Layanan Bisnis',
+          content: `Dalam dunia perkantoran (MPLB), menerima telepon harus menggunakan bahasa yang sopan dan profesional.\n\nUngkapan Penting:\n• "Good morning, SMKN 10 Jeneponto Office. How may I help you?" (Selamat pagi, Kantor SMKN 10 Jeneponto. Ada yang bisa saya bantu?)\n• "May I ask who is calling, please?" (Boleh saya tahu dengan siapa saya berbicara?)\n• "Please hold the line, I will transfer your call." (Mohon tunggu sebentar, saya sambungkan telepon Anda.)`,
+          task: 'Tuliskan contoh dialog singkat (4 baris) saat Anda menjadi resepsionis menerima telepon dari tamu yang ingin bertemu Kepala Sekolah!'
+        },
+        {
+          id: 102,
+          title: 'Unit 2: Welcoming Office Guests (Menyambut Tamu Kantor)',
+          topic: 'Pelayanan Prima & Resepsionis',
+          content: `Menyambut tamu adalah keterampilan wajib lulusan Manajemen Perkantoran.\n\nUngkapan Penting:\n• "Welcome to our office. Have a seat, please." (Selamat datang di kantor kami. Silakan duduk.)\n• "Do you have an appointment with Mr./Mrs. ...?" (Apakah Anda memiliki janji temu dengan Bapak/Ibu ...?)\n• "Please fill in the guest book first." (Silakan isi buku tamu terlebih dahulu.)`,
+          task: 'Terjemahkan ke dalam Bahasa Inggris yang sopan: "Selamat siang Pak, silakan isi buku tamu dan tunggu sebentar di ruang tunggu."'
+        }
+      ],
+      quizzes: [
+        {
+          id: 201,
+          question: 'Visitor: "Good morning, I would like to meet the HR Manager." — Receptionist: "..."',
+          translation: 'Tamu: "Selamat pagi, saya ingin bertemu Manajer HRD." — Resepsionis: "..."',
+          options: [
+            'Do you have an appointment, Sir?',
+            'Go away, he is sleeping.',
+            'Give me your money first.',
+            'I do not know anything.'
+          ],
+          answer: 0
+        },
+        {
+          id: 202,
+          question: 'Which office equipment is used to destroy confidential paper documents?',
+          translation: 'Peralatan kantor manakah yang digunakan untuk menghancurkan dokumen kertas rahasia?',
+          options: [
+            'Stapler',
+            'Paper Shredder',
+            'Calculator',
+            'Whiteboard'
+          ],
+          answer: 1
+        },
+        {
+          id: 203,
+          question: 'A written record of everything discussed during an office meeting is called...',
+          translation: 'Catatan tertulis tentang segala hal yang dibahas selama rapat kantor disebut...',
+          options: [
+            'Invoice',
+            'Minutes of Meeting',
+            'Receipt',
+            'Brochure'
+          ],
+          answer: 1
+        },
+        {
+          id: 204,
+          question: 'When a caller needs to wait on the phone, the secretary politely says: "Please ___."',
+          translation: 'Ketika penelepon perlu menunggu di telepon, sekretaris dengan sopan berkata: "Silakan ___."',
+          options: [
+            'close the door',
+            'hold the line',
+            'turn off the computer',
+            'print the paper'
+          ],
+          answer: 1
+        },
+        {
+          id: 205,
+          question: 'The manager is sick today, so we must ___ the weekly meeting to Friday.',
+          translation: 'Manajer sedang sakit hari ini, jadi kita harus ___ rapat mingguan ke hari Jumat.',
+          options: [
+            'postpone',
+            'shred',
+            'arrive',
+            'buy'
+          ],
+          answer: 0
+        }
+      ],
+      submissions: [
+        {
+          id: 301,
+          studentName: 'Andi Nurul Hikmah',
+          materialId: 101,
+          materialTitle: 'Unit 1: Handling Office Telephone Calls',
+          answerText: 'Receptionist: Good morning, SMKN 10 Jeneponto. How may I assist you?\nCaller: Good morning, I want to speak with the Principal.\nReceptionist: May I have your name, please? Please hold the line.',
+          submittedAt: '16 Nov 2026, 08:30',
+          grade: 92,
+          feedback: 'Sangat baik! Struktur kalimat sopan dan kosakata tepat.'
+        }
+      ],
+      quizResults: [
+        {
+          id: 401,
+          studentName: 'Andi Nurul Hikmah',
+          score: 80,
+          correctCount: 4,
+          totalQuestions: 5,
+          date: '16 Nov 2026, 09:00'
+        }
+      ],
+      studentProgress: {}
+    };
+
+    // Load or initialize Database
+    function getDB() {
+      const raw = localStorage.getItem(DB_KEY);
+      if (!raw) {
+        localStorage.setItem(DB_KEY, JSON.stringify(DEFAULT_DB));
+        return JSON.parse(JSON.stringify(DEFAULT_DB));
+      }
+      return JSON.parse(raw);
+    }
+
+    function saveDB(db) {
+      localStorage.setItem(DB_KEY, JSON.stringify(db));
+    }
+
+    let currentUser = null;
+    let selectedLoginRole = 'siswa';
+    let currentVocabFilter = 'ALL';
+
+    // Toast Helper
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const colors = type === 'success'
+        ? 'bg-slate-900 text-white border-emerald-500'
+        : 'bg-rose-600 text-white border-rose-300';
+      toast.className = `pointer-events-auto px-4 py-3 rounded-2xl shadow-xl border-l-4 text-xs font-bold flex items-center gap-2 transition-all transform translate-y-0 ${colors}`;
+      toast.innerHTML = `<span>${type === 'success' ? '✨' : '⚠️'}</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    // Speech Synthesis for English Pronunciation
+    function speakWord(text, event) {
+      if (event) event.stopPropagation();
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        showToast('Browser tidak mendukung fitur audio suara.', 'error');
+      }
+    }
+
+    // ================= AUTHENTICATION =================
+    function selectLoginRole(role) {
+      selectedLoginRole = role;
+      const btnSiswa = document.getElementById('role-btn-siswa');
+      const btnGuru = document.getElementById('role-btn-guru');
+      const nameGroup = document.getElementById('student-name-group');
+
+      if (role === 'siswa') {
+        btnSiswa.className = 'py-2.5 px-4 rounded-xl text-sm font-bold transition-all bg-white text-indigo-700 shadow-sm flex items-center justify-center gap-2';
+        btnGuru.className = 'py-2.5 px-4 rounded-xl text-sm font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2';
+        nameGroup.classList.remove('hidden');
+      } else {
+        btnGuru.className = 'py-2.5 px-4 rounded-xl text-sm font-bold transition-all bg-white text-teal-700 shadow-sm flex items-center justify-center gap-2';
+        btnSiswa.className = 'py-2.5 px-4 rounded-xl text-sm font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2';
+        nameGroup.classList.add('hidden');
+      }
+      document.getElementById('login-error').classList.add('hidden');
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const username = document.getElementById('login-username').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      const fullName = document.getElementById('login-fullname').value.trim();
+      const errBox = document.getElementById('login-error');
+
+      if (selectedLoginRole === 'siswa') {
+        if (username === 'Siswa_skaten' && password === 'Siswa_skaten') {
+          const studentName = fullName || 'Siswa Kelas XI MPLB';
+          enterApp({ role: 'siswa', name: studentName });
+        } else {
+          errBox.textContent = 'Username atau Password Siswa salah! Gunakan: Siswa_skaten';
+          errBox.classList.remove('hidden');
+        }
+      } else {
+        if (username === 'Guru_skaten' && password === 'Guru_skaten') {
+          enterApp({ role: 'guru', name: 'Guru Bahasa Inggris (SMKN 10 Jeneponto)' });
+        } else {
+          errBox.textContent = 'Username atau Password Guru salah! Gunakan: Guru_skaten';
+          errBox.classList.remove('hidden');
+        }
+      }
+    }
+
+    function quickDemoLogin(role) {
+      selectLoginRole(role);
+      if (role === 'siswa') {
+        document.getElementById('login-fullname').value = 'Muh. Resky Pratama (XI MPLB)';
+        document.getElementById('login-username').value = 'Siswa_skaten';
+        document.getElementById('login-password').value = 'Siswa_skaten';
+        enterApp({ role: 'siswa', name: 'Muh. Resky Pratama (XI MPLB)' });
+      } else {
+        document.getElementById('login-username').value = 'Guru_skaten';
+        document.getElementById('login-password').value = 'Guru_skaten';
+        enterApp({ role: 'guru', name: 'Guru Bahasa Inggris (SMKN 10 Jeneponto)' });
+      }
+    }
+
+    function enterApp(user) {
+      currentUser = user;
+      document.getElementById('login-view').classList.add('hidden');
+      document.getElementById('app-shell').classList.remove('hidden');
+      document.getElementById('header-user-name').textContent = user.name;
+
+      if (user.role === 'siswa') {
+        document.getElementById('header-user-role').textContent = 'Siswa Kelas XI MPLB';
+        document.getElementById('header-student-stats').classList.remove('hidden');
+        document.getElementById('student-workspace').classList.remove('hidden');
+        document.getElementById('teacher-workspace').classList.add('hidden');
+        document.getElementById('banner-student-name').textContent = user.name;
+
+        ensureStudentProgress(user.name);
+        updateStudentGamificationUI();
+        renderVocabCards();
+        renderStudentMaterials();
+        initMatchGame();
+        initScrambleGame();
+        startQuiz();
+        renderStudentScores();
+        showToast(`Selamat belajar, ${user.name}!`);
+      } else {
+        document.getElementById('header-user-role').textContent = 'Guru Pengajar MPLB';
+        document.getElementById('header-student-stats').classList.add('hidden');
+        document.getElementById('student-workspace').classList.add('hidden');
+        document.getElementById('teacher-workspace').classList.remove('hidden');
+        refreshTeacherDashboard();
+        showToast('Selamat datang di Dashboard Guru SMKN 10 Jeneponto!');
+      }
+    }
+
+    function logout() {
+      currentUser = null;
+      document.getElementById('app-shell').classList.add('hidden');
+      document.getElementById('login-view').classList.remove('hidden');
+    }
+
+    // ================= GAMIFICATION & STUDENT PROGRESS =================
+    function ensureStudentProgress(name) {
+      const db = getDB();
+      if (!db.studentProgress[name]) {
+        db.studentProgress[name] = { xp: 40, masteredIds: [] };
+        saveDB(db);
+      }
+    }
+
+    function addStudentXP(amount, reason) {
+      if (!currentUser || currentUser.role !== 'siswa') return;
+      const db = getDB();
+      const prog = db.studentProgress[currentUser.name];
+      prog.xp += amount;
+      saveDB(db);
+      updateStudentGamificationUI();
+      showToast(`+${amount} XP! ${reason}`);
+    }
+
+    function getLevelTitle(xp) {
+      if (xp >= 400) return 'Executive Secretary 👑';
+      if (xp >= 250) return 'Office Specialist 💼';
+      if (xp >= 120) return 'Junior Admin 📋';
+      return 'Office Rookie 🌱';
+    }
+
+    function updateStudentGamificationUI() {
+      const db = getDB();
+      const prog = db.studentProgress[currentUser.name] || { xp: 0, masteredIds: [] };
+      const lvl = getLevelTitle(prog.xp);
+      const totalVocab = db.vocabularies.length;
+      const masteredCount = prog.masteredIds.filter(id => db.vocabularies.some(v => v.id === id)).length;
+      const pct = totalVocab > 0 ? Math.round((masteredCount / totalVocab) * 100) : 0;
+
+      document.getElementById('header-xp').textContent = `${prog.xp} XP`;
+      document.getElementById('header-level').textContent = lvl;
+      document.getElementById('banner-level').textContent = lvl;
+      document.getElementById('vocab-progress-text').textContent = `${masteredCount} / ${totalVocab} Kata`;
+      document.getElementById('vocab-progress-bar').style.width = `${pct}%`;
+    }
+
+    // ================= STUDENT TABS & 3D FLASHCARDS =================
+    function switchStudentTab(tabName) {
+      document.querySelectorAll('.student-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById(`spanel-${tabName}`).classList.remove('hidden');
+
+      document.querySelectorAll('.student-tab-btn').forEach(btn => {
+        btn.className = 'student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80';
+      });
+      document.getElementById(`stab-${tabName}`).className = 'student-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition flex items-center gap-2 bg-indigo-600 text-white shadow-md shadow-indigo-600/20';
+
+      if (tabName === 'scores') renderStudentScores();
+    }
+
+    function filterVocab(cat) {
+      currentVocabFilter = cat;
+      document.querySelectorAll('.vocab-cat-btn').forEach(btn => {
+        btn.className = 'vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200';
+      });
+      event.target.className = 'vocab-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white';
+      renderVocabCards();
+    }
+
+    function getCategoryIcon(cat) {
+      if (cat === 'Office Equipment') return '🖨️';
+      if (cat === 'Business Correspondence') return '✉️';
+      if (cat === 'Guest & Telephone') return '☎️';
+      return '📅';
+    }
+
+    function renderVocabCards() {
+      const db = getDB();
+      const prog = db.studentProgress[currentUser.name] || { xp: 0, masteredIds: [] };
+      const grid = document.getElementById('vocab-cards-grid');
+      const list = currentVocabFilter === 'ALL'
+        ? db.vocabularies
+        : db.vocabularies.filter(v => v.category === currentVocabFilter);
+
+      grid.innerHTML = list.map(v => {
+        const isMastered = prog.masteredIds.includes(v.id);
+        return `
+          <div class="perspective-1000 h-64 cursor-pointer group" onclick="this.firstElementChild.classList.toggle('rotate-y-180')">
+            <div class="relative w-full h-full transform-style-3d">
+              <!-- FRONT SIDE (ENGLISH) -->
+              <div class="absolute inset-0 backface-hidden bg-white rounded-3xl border-2 ${isMastered ? 'border-emerald-400' : 'border-slate-200/80'} p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 text-[11px] font-bold">
+                    ${getCategoryIcon(v.category)} ${v.category}
+                  </span>
+                  <button type="button" onclick="speakWord('${v.en.replace(/'/g, "\\'")}', event)"
+                    class="w-9 h-9 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 flex items-center justify-center transition shadow-sm" title="Dengarkan Pelafalan">
+                    🔊
+                  </button>
+                </div>
+
+                <div class="text-center my-auto">
+                  <h4 class="text-2xl font-extrabold text-slate-900 tracking-tight">${v.en}</h4>
+                  <p class="text-xs font-medium text-slate-400 mt-1">${v.phonetic}</p>
+                </div>
+
+                <div class="flex items-center justify-between text-xs pt-3 border-t border-slate-100">
+                  <span class="text-slate-400 font-medium">Klik kartu untuk arti ↻</span>
+                  ${isMastered ? '<span class="text-emerald-600 font-extrabold">✓ Sudah Hafal</span>' : '<span class="text-indigo-600 font-bold">+20 XP</span>'}
+                </div>
+              </div>
+
+              <!-- BACK SIDE (INDONESIAN + EXAMPLE) -->
+              <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-indigo-700 to-blue-800 text-white rounded-3xl p-6 shadow-lg flex flex-col justify-between">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-teal-300">Arti Bahasa Indonesia</span>
+                  <button type="button" onclick="speakWord('${v.example.replace(/'/g, "\\'")}', event)"
+                    class="px-2.5 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold flex items-center gap-1">
+                    🔊 Contoh
+                  </button>
+                </div>
+
+                <div class="my-auto">
+                  <h4 class="text-xl font-extrabold text-amber-300 mb-2">${v.idText}</h4>
+                  <div class="p-3 rounded-2xl bg-white/10 border border-white/15">
+                    <p class="text-[11px] text-blue-200 font-semibold mb-0.5">Contoh Kalimat Kantor:</p>
+                    <p class="text-xs italic leading-relaxed">"${v.example}"</p>
+                  </div>
+                </div>
+
+                <button type="button" onclick="toggleMasteredVocab(${v.id}, event)"
+                  class="w-full py-2.5 rounded-xl font-bold text-xs transition ${isMastered ? 'bg-emerald-500 text-white' : 'bg-white text-indigo-800 hover:bg-amber-300'}">
+                  ${isMastered ? '✓ Tersimpan di Hafalan' : '⭐ Tandai Sudah Hafal (+20 XP)'}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleMasteredVocab(vocabId, event) {
+      event.stopPropagation();
+      const db = getDB();
+      const prog = db.studentProgress[currentUser.name];
+      if (!prog.masteredIds.includes(vocabId)) {
+        prog.masteredIds.push(vocabId);
+        prog.xp += 20;
+        saveDB(db);
+        updateStudentGamificationUI();
+        renderVocabCards();
+        showToast('+20 XP! Kosakata berhasil ditandai hafal.');
+      }
+    }
+
+    // ================= STUDENT MATERIALS & ASSIGNMENTS =================
+    function renderStudentMaterials() {
+      const db = getDB();
+      const container = document.getElementById('student-materials-list');
+      container.innerHTML = db.materials.map(m => {
+        const mySub = db.submissions.find(s => s.materialId === m.id && s.studentName === currentUser.name);
+        return `
+          <div class="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-bold">${m.topic}</span>
+              ${mySub ? '<span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">✓ Tugas Terkirim</span>' : '<span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold">Tugas Belum Dikirim</span>'}
+            </div>
+            <h4 class="text-xl font-extrabold text-slate-900 mb-3">${m.title}</h4>
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 text-sm text-slate-700 whitespace-pre-line leading-relaxed mb-5">
+              ${m.content}
+            </div>
+
+            <div class="p-5 rounded-2xl bg-indigo-50/70 border border-indigo-200/80">
+              <p class="text-xs font-extrabold uppercase tracking-wider text-indigo-700 mb-1">📝 Tugas Praktik Siswa:</p>
+              <p class="text-sm font-bold text-slate-800 mb-3">${m.task}</p>
+              <textarea id="task-input-${m.id}" rows="3" placeholder="Ketik jawaban tugas Anda dalam Bahasa Inggris di sini..."
+                class="w-full p-3.5 rounded-xl border border-indigo-200 bg-white text-sm outline-none focus:border-indigo-500 mb-3">${mySub ? mySub.answerText : ''}</textarea>
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <button onclick="submitAssignment(${m.id})"
+                  class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition">
+                  ${mySub ? 'Perbarui Jawaban Tugas' : 'Kirim Jawaban ke Guru →'}
+                </button>
+                ${mySub && mySub.grade !== null ? `<span class="text-xs font-extrabold text-emerald-700 bg-emerald-100 px-3 py-1.5 rounded-xl">Nilai Guru: ${mySub.grade}/100 (${mySub.feedback || 'Bagus'})</span>` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function submitAssignment(materialId) {
+      const text = document.getElementById(`task-input-${materialId}`).value.trim();
+      if (!text) {
+        showToast('Silakan tulis jawaban tugas terlebih dahulu.', 'error');
+        return;
+      }
+      const db = getDB();
+      const mat = db.materials.find(m => m.id === materialId);
+      const existingIdx = db.submissions.findIndex(s => s.materialId === materialId && s.studentName === currentUser.name);
+      const nowStr = new Date().toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
+
+      if (existingIdx >= 0) {
+        db.submissions[existingIdx].answerText = text;
+        db.submissions[existingIdx].submittedAt = nowStr;
+      } else {
+        db.submissions.unshift({
+          id: Date.now(),
+          studentName: currentUser.name,
+          materialId: materialId,
+          materialTitle: mat.title,
+          answerText: text,
+          submittedAt: nowStr,
+          grade: null,
+          feedback: ''
+        });
+        addStudentXP(30, 'Mengirim tugas praktik!');
+      }
+      saveDB(db);
+      renderStudentMaterials();
+      showToast('Jawaban tugas berhasil dikirim ke Guru!');
+    }
+
+    // ================= MINI GAME 1: WORD MATCH =================
+    let matchSelectedEn = null;
+    let matchMatchedIds = [];
+    let matchPairs = [];
+
+    function initMatchGame() {
+      const db = getDB();
+      const shuffled = [...db.vocabularies].sort(() => 0.5 - Math.random()).slice(0, 5);
+      matchPairs = shuffled;
+      matchSelectedEn = null;
+      matchMatchedIds = [];
+
+      const enCol = document.getElementById('match-en-col');
+      const idCol = document.getElementById('match-id-col');
+
+      const enList = [...shuffled].sort(() => 0.5 - Math.random());
+      const idList = [...shuffled].sort(() => 0.5 - Math.random());
+
+      enCol.innerHTML = enList.map(item => `
+        <button id="m-en-${item.id}" onclick="selectMatchEn(${item.id})"
+          class="w-full p-3 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 text-xs font-extrabold text-slate-800 transition text-left">
+          🇬🇧 ${item.en}
+        </button>
+      `).join('');
+
+      idCol.innerHTML = idList.map(item => `
+        <button id="m-id-${item.id}" onclick="selectMatchId(${item.id})"
+          class="w-full p-3 rounded-xl border-2 border-slate-200 bg-white hover:border-teal-400 text-xs font-bold text-slate-700 transition text-left">
+          🇮🇩 ${item.idText}
+        </button>
+      `).join('');
+
+      document.getElementById('match-game-status').textContent = 'Pasangkan semua 5 kosakata kantor!';
+    }
+
+    function selectMatchEn(id) {
+      if (matchMatchedIds.includes(id)) return;
+      matchSelectedEn = id;
+      matchPairs.forEach(p => {
+        const el = document.getElementById(`m-en-${p.id}`);
+        if (!matchMatchedIds.includes(p.id)) {
+          el.className = p.id === id
+            ? 'w-full p-3 rounded-xl border-2 border-indigo-600 bg-indigo-50 text-xs font-extrabold text-indigo-800 transition text-left'
+            : 'w-full p-3 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 text-xs font-extrabold text-slate-800 transition text-left';
+        }
+      });
+    }
+
+    function selectMatchId(id) {
+      if (matchMatchedIds.includes(id) || matchSelectedEn === null) return;
+      if (matchSelectedEn === id) {
+        matchMatchedIds.push(id);
+        const enBtn = document.getElementById(`m-en-${id}`);
+        const idBtn = document.getElementById(`m-id-${id}`);
+        enBtn.className = 'w-full p-3 rounded-xl border-2 border-emerald-400 bg-emerald-50 text-xs font-extrabold text-emerald-700 text-left opacity-75';
+        idBtn.className = 'w-full p-3 rounded-xl border-2 border-emerald-400 bg-emerald-50 text-xs font-bold text-emerald-700 text-left opacity-75';
+        matchSelectedEn = null;
+
+        if (matchMatchedIds.length === matchPairs.length) {
+          document.getElementById('match-game-status').innerHTML = '🎉 Luar Biasa! Semua pasangan benar! (+50 XP)';
+          addStudentXP(50, 'Menyelesaikan Office Word Match!');
+          if (typeof confetti === 'function') confetti({ particleCount: 70, spread: 60, origin: { y: 0.7 } });
+        } else {
+          document.getElementById('match-game-status').textContent = `Cocok! (${matchMatchedIds.length}/${matchPairs.length} selesai)`;
+        }
+      } else {
+        showToast('Belum cocok, coba pasangan lain!', 'error');
+      }
+    }
+
+    // ================= MINI GAME 2: SENTENCE SCRAMBLE =================
+    const SCRAMBLE_BANK = [
+      { en: 'How may I help you today', id: 'Ada yang bisa saya bantu hari ini?' },
+      { en: 'Please hold the line for a moment', id: 'Mohon tunggu sebentar di telepon.' },
+      { en: 'Do you have an appointment with the manager', id: 'Apakah Anda memiliki janji temu dengan manajer?' },
+      { en: 'Please put the invoice in the filing cabinet', id: 'Tolong simpan faktur di dalam lemari arsip.' }
+    ];
+    let scrambleIdx = 0;
+    let scrambleChosen = [];
+    let scramblePool = [];
+
+    function initScrambleGame() {
+      const item = SCRAMBLE_BANK[scrambleIdx];
+      document.getElementById('scramble-hint-id').textContent = item.id;
+      scrambleChosen = [];
+      scramblePool = item.en.split(' ').map((word, idx) => ({ id: idx, word })).sort(() => 0.5 - Math.random());
+      document.getElementById('scramble-feedback').classList.add('hidden');
+      renderScrambleBoxes();
+    }
+
+    function renderScrambleBoxes() {
+      const ansBox = document.getElementById('scramble-answer-box');
+      const bankBox = document.getElementById('scramble-bank-box');
+
+      ansBox.innerHTML = scrambleChosen.length === 0
+        ? '<span class="text-xs text-slate-400">Klik kata di bawah untuk menyusun kalimat...</span>'
+        : scrambleChosen.map((w, i) => `
+            <button onclick="removeScrambleWord(${i})" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-sm hover:bg-rose-600 transition">
+              ${w.word}
+            </button>
+          `).join('');
+
+      bankBox.innerHTML = scramblePool.map((w, i) => `
+        <button onclick="pickScrambleWord(${i})" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-teal-100 text-slate-800 text-xs font-bold border border-slate-200 transition">
+          ${w.word}
+        </button>
+      `).join('');
+    }
+
+    function pickScrambleWord(poolIndex) {
+      const [picked] = scramblePool.splice(poolIndex, 1);
+      scrambleChosen.push(picked);
+      renderScrambleBoxes();
+    }
+
+    function removeScrambleWord(chosenIndex) {
+      const [removed] = scrambleChosen.splice(chosenIndex, 1);
+      scramblePool.push(removed);
+      renderScrambleBoxes();
+    }
+
+    function resetCurrentScramble() {
+      initScrambleGame();
+    }
+
+    function nextScrambleQuestion() {
+      scrambleIdx = (scrambleIdx + 1) % SCRAMBLE_BANK.length;
+      initScrambleGame();
+    }
+
+    function checkScrambleAnswer() {
+      const target = SCRAMBLE_BANK[scrambleIdx].en;
+      const attempt = scrambleChosen.map(w => w.word).join(' ');
+      const fb = document.getElementById('scramble-feedback');
+      fb.classList.remove('hidden');
+
+      if (attempt === target) {
+        fb.className = 'mt-3 p-3 rounded-xl text-xs font-bold text-center bg-emerald-50 text-emerald-700 border border-emerald-200';
+        fb.textContent = `🎉 Tepat sekali! "${target}" (+50 XP)`;
+        speakWord(target);
+        addStudentXP(50, 'Menyusun kalimat layanan bisnis!');
+        if (typeof confetti === 'function') confetti({ particleCount: 70, spread: 60, origin: { y: 0.7 } });
+      } else {
+        fb.className = 'mt-3 p-3 rounded-xl text-xs font-bold text-center bg-rose-50 text-rose-700 border border-rose-200';
+        fb.textContent = 'Belum tepat, periksa kembali urutan kata sopannya!';
+      }
+    }
+
+    // ================= STUDENT QUIZ =================
+    let quizAnswers = {};
+
+    function startQuiz() {
+      const db = getDB();
+      quizAnswers = {};
+      const container = document.getElementById('quiz-container');
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          ${db.quizzes.map((q, idx) => `
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <p class="text-sm font-extrabold text-slate-900">${idx + 1}. ${q.question}</p>
+                <button type="button" onclick="document.getElementById('q-trans-${q.id}').classList.toggle('hidden')"
+                  class="shrink-0 px-2.5 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-800 text-[11px] font-bold">
+                  💡 Arti Soal
+                </button>
+              </div>
+              <p id="q-trans-${q.id}" class="hidden text-xs italic text-amber-800 bg-amber-50 p-2.5 rounded-xl border border-amber-200/70 mb-3">
+                Terjemahan: ${q.translation}
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                ${q.options.map((opt, oIdx) => `
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 hover:border-indigo-400 cursor-pointer text-xs font-bold text-slate-700">
+                    <input type="radio" name="quiz-q-${q.id}" value="${oIdx}" onchange="quizAnswers[${q.id}] = ${oIdx}" class="accent-indigo-600" />
+                    <span>${opt}</span>
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <button onclick="submitQuiz()" class="mt-6 w-full py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-extrabold text-sm shadow-lg">
+          Kirim & Lihat Nilai Kuis →
+        </button>
+      `;
+    }
+
+    function submitQuiz() {
+      const db = getDB();
+      if (Object.keys(quizAnswers).length < db.quizzes.length) {
+        showToast('Harap jawab semua soal kuis terlebih dahulu!', 'error');
+        return;
+      }
+
+      let correct = 0;
+      db.quizzes.forEach(q => {
+        if (quizAnswers[q.id] === q.answer) correct++;
+      });
+      const score = Math.round((correct / db.quizzes.length) * 100);
+      const nowStr = new Date().toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
+
+      db.quizResults.unshift({
+        id: Date.now(),
+        studentName: currentUser.name,
+        score: score,
+        correctCount: correct,
+        totalQuestions: db.quizzes.length,
+        date: nowStr
+      });
+      saveDB(db);
+
+      if (score >= 75) {
+        addStudentXP(80, `Lulus kuis dengan nilai ${score}!`);
+        if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      } else {
+        addStudentXP(25, 'Menyelesaikan latihan kuis!');
+      }
+
+      document.getElementById('quiz-container').innerHTML = `
+        <div class="text-center py-8">
+          <div class="w-20 h-20 rounded-3xl ${score >= 75 ? 'bg-emerald-100 text-emerald-600' : 'bg-amber-100 text-amber-600'} flex items-center justify-center text-4xl mx-auto mb-4">
+            ${score >= 75 ? '🏆' : '💪'}
+          </div>
+          <h4 class="text-2xl font-extrabold text-slate-900">Nilai Kuis Anda: ${score}</h4>
+          <p class="text-sm text-slate-600 mt-1">Benar ${correct} dari ${db.quizzes.length} soal • Tersimpan otomatis ke database Guru.</p>
+          <button onclick="startQuiz()" class="mt-6 px-6 py-3 rounded-xl bg-indigo-600 text-white font-bold text-xs shadow-md">
+            Kerjakan Ulang Kuis
+          </button>
+        </div>
+      `;
+    }
+
+    // ================= STUDENT SCORES HISTORY =================
+    function renderStudentScores() {
+      const db = getDB();
+      const prog = db.studentProgress[currentUser.name] || { xp: 0 };
+      const myQuizzes = db.quizResults.filter(r => r.studentName === currentUser.name);
+      const mySubs = db.submissions.filter(s => s.studentName === currentUser.name);
+
+      document.getElementById('score-card-xp').textContent = `${prog.xp} XP`;
+      document.getElementById('score-card-level').textContent = getLevelTitle(prog.xp);
+      document.getElementById('score-card-tasks').textContent = `${mySubs.length} Tugas`;
+
+      if (myQuizzes.length > 0) {
+        const avg = Math.round(myQuizzes.reduce((a, b) => a + b.score, 0) / myQuizzes.length);
+        document.getElementById('score-card-quiz-avg').textContent = `${avg}`;
+      } else {
+        document.getElementById('score-card-quiz-avg').textContent = '-';
+      }
+
+      const tbody = document.getElementById('student-history-tbody');
+      const rows = [
+        ...myQuizzes.map(q => `
+          <tr>
+            <td class="py-3 px-4 font-bold text-indigo-600">📝 Kuis Evaluasi</td>
+            <td class="py-3 px-4 font-medium">Asesmen Formatif MPLB (${q.correctCount}/${q.totalQuestions} benar)</td>
+            <td class="py-3 px-4 text-xs text-slate-500">${q.date}</td>
+            <td class="py-3 px-4 font-extrabold text-slate-900">${q.score}</td>
+            <td class="py-3 px-4 text-xs text-slate-500">${q.score >= 75 ? 'Tuntas (KKM 75)' : 'Perlu Latihan Lagi'}</td>
+          </tr>
+        `),
+        ...mySubs.map(s => `
+          <tr>
+            <td class="py-3 px-4 font-bold text-teal-600">📚 Tugas Praktik</td>
+            <td class="py-3 px-4 font-medium">${s.materialTitle}</td>
+            <td class="py-3 px-4 text-xs text-slate-500">${s.submittedAt}</td>
+            <td class="py-3 px-4 font-extrabold text-slate-900">${s.grade !== null ? s.grade : 'Menunggu Nilai'}</td>
+            <td class="py-3 px-4 text-xs text-slate-500">${s.feedback || '-'}</td>
+          </tr>
+        `)
+      ];
+
+      tbody.innerHTML = rows.length > 0
+        ? rows.join('')
+        : '<tr><td colspan="5" class="py-6 text-center text-xs text-slate-400">Belum ada riwayat nilai kuis atau tugas.</td></tr>';
+    }
+
+    // ================= TEACHER WORKSPACE FUNCTIONS =================
+    function switchTeacherTab(tabName) {
+      document.querySelectorAll('.teacher-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById(`tpanel-${tabName}`).classList.remove('hidden');
+
+      document.querySelectorAll('.teacher-tab-btn').forEach(btn => {
+        btn.className = 'teacher-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200';
+      });
+      document.getElementById(`ttab-${tabName}`).className = 'teacher-tab-btn px-5 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition bg-indigo-600 text-white shadow-md';
+      refreshTeacherDashboard();
+    }
+
+    function refreshTeacherDashboard() {
+      const db = getDB();
+      document.getElementById('t-stat-vocab').textContent = db.vocabularies.length;
+      document.getElementById('t-stat-materials').textContent = db.materials.length;
+      document.getElementById('t-stat-submissions').textContent = db.submissions.length;
+
+      const avg = db.quizResults.length > 0
+        ? Math.round(db.quizResults.reduce((a, b) => a + b.score, 0) / db.quizResults.length)
+        : 0;
+      document.getElementById('t-stat-avg').textContent = avg;
+
+      renderTeacherSubmissions();
+      renderTeacherQuizRecap();
+      renderTeacherMaterials();
+      renderTeacherVocab();
+      renderTeacherQuizBank();
+    }
+
+    function renderTeacherSubmissions() {
+      const db = getDB();
+      const container = document.getElementById('teacher-submissions-list');
+      if (db.submissions.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-400">Belum ada tugas siswa yang masuk.</p>';
+        return;
+      }
+
+      container.innerHTML = db.submissions.map(s => `
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div>
+              <span class="font-extrabold text-sm text-slate-900">${s.studentName}</span>
+              <span class="text-xs text-slate-500 ml-2">• ${s.materialTitle}</span>
+            </div>
+            <span class="text-[11px] text-slate-400">${s.submittedAt}</span>
+          </div>
+          <p class="p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-700 whitespace-pre-line mb-3">${s.answerText}</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <input type="number" id="grade-val-${s.id}" min="0" max="100" value="${s.grade !== null ? s.grade : ''}" placeholder="Nilai (0-100)"
+              class="w-28 px-3 py-2 rounded-xl border border-slate-200 text-xs font-bold bg-white" />
+            <input type="text" id="grade-fb-${s.id}" value="${s.feedback || ''}" placeholder="Catatan / Umpan balik guru..."
+              class="flex-1 min-w-[180px] px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white" />
+            <button onclick="gradeSubmission(${s.id})" class="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold">
+              Simpan Nilai
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function gradeSubmission(subId) {
+      const val = parseInt(document.getElementById(`grade-val-${subId}`).value, 10);
+      const fb = document.getElementById(`grade-fb-${subId}`).value.trim();
+      if (isNaN(val) || val < 0 || val > 100) {
+        showToast('Masukkan nilai valid antara 0 hingga 100.', 'error');
+        return;
+      }
+      const db = getDB();
+      const item = db.submissions.find(s => s.id === subId);
+      if (item) {
+        item.grade = val;
+        item.feedback = fb || 'Bagus, pertahankan!';
+        saveDB(db);
+        refreshTeacherDashboard();
+        showToast(`Nilai ${val} untuk ${item.studentName} tersimpan!`);
+      }
+    }
+
+    function renderTeacherQuizRecap() {
+      const db = getDB();
+      const tbody = document.getElementById('teacher-quiz-tbody');
+      if (db.quizResults.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="py-6 text-center text-xs text-slate-400">Belum ada data nilai kuis siswa.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = db.quizResults.map(r => `
+        <tr>
+          <td class="py-3 px-4 font-bold text-slate-900">${r.studentName}</td>
+          <td class="py-3 px-4 text-xs text-slate-500">${r.date}</td>
+          <td class="py-3 px-4 text-xs font-semibold">${r.correctCount} / ${r.totalQuestions} Soal</td>
+          <td class="py-3 px-4 font-extrabold text-indigo-700">${r.score}</td>
+          <td class="py-3 px-4">
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold ${r.score >= 75 ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}">
+              ${r.score >= 75 ? 'Tuntas' : 'Remedial'}
+            </span>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function exportGradesCSV() {
+      const db = getDB();
+      let csv = 'Nama Siswa,Tanggal,Benar,Total Soal,Nilai Akhir\n';
+      db.quizResults.forEach(r => {
+        csv += `"${r.studentName}","${r.date}",${r.correctCount},${r.totalQuestions},${r.score}\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Rekap_Nilai_MPLB_SMKN10_Jeneponto.csv';
+      link.click();
+    }
+
+    // Teacher CRUD: Materials
+    function addMaterial(e) {
+      e.preventDefault();
+      const db = getDB();
+      db.materials.unshift({
+        id: Date.now(),
+        title: document.getElementById('mat-title').value.trim(),
+        topic: document.getElementById('mat-topic').value.trim(),
+        content: document.getElementById('mat-content').value.trim(),
+        task: document.getElementById('mat-task').value.trim()
+      });
+      saveDB(db);
+      e.target.reset();
+      refreshTeacherDashboard();
+      showToast('Materi & tugas baru berhasil dipublikasikan!');
+    }
+
+    function deleteMaterial(id) {
+      const db = getDB();
+      db.materials = db.materials.filter(m => m.id !== id);
+      saveDB(db);
+      refreshTeacherDashboard();
+      showToast('Materi dihapus.');
+    }
+
+    function renderTeacherMaterials() {
+      const db = getDB();
+      document.getElementById('teacher-materials-list').innerHTML = db.materials.map(m => `
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-600 uppercase">${m.topic}</span>
+              <h4 class="text-base font-extrabold text-slate-900">${m.title}</h4>
+            </div>
+            <button onclick="deleteMaterial(${m.id})" class="text-xs font-bold text-rose-500 hover:underline">Hapus</button>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 whitespace-pre-line">${m.content}</p>
+          <p class="text-xs font-bold text-indigo-700 mt-3 pt-2 border-t border-slate-100">Tugas: ${m.task}</p>
+        </div>
+      `).join('');
+    }
+
+    // Teacher CRUD: Vocabulary
+    function addVocabulary(e) {
+      e.preventDefault();
+      const db = getDB();
+      db.vocabularies.unshift({
+        id: Date.now(),
+        category: document.getElementById('voc-cat').value,
+        en: document.getElementById('voc-en').value.trim(),
+        phonetic: document.getElementById('voc-phonetic').value.trim(),
+        idText: document.getElementById('voc-id').value.trim(),
+        example: document.getElementById('voc-ex').value.trim()
+      });
+      saveDB(db);
+      e.target.reset();
+      refreshTeacherDashboard();
+      showToast('Kosakata baru ditambahkan ke kartu 3D siswa!');
+    }
+
+    function deleteVocab(id) {
+      const db = getDB();
+      db.vocabularies = db.vocabularies.filter(v => v.id !== id);
+      saveDB(db);
+      refreshTeacherDashboard();
+      showToast('Kosakata dihapus.');
+    }
+
+    function renderTeacherVocab() {
+      const db = getDB();
+      document.getElementById('voc-count-label').textContent = db.vocabularies.length;
+      document.getElementById('teacher-vocab-tbody').innerHTML = db.vocabularies.map(v => `
+        <tr>
+          <td class="py-2.5 px-3 font-bold text-slate-900">${v.en}</td>
+          <td class="py-2.5 px-3 text-slate-600">${v.idText}</td>
+          <td class="py-2.5 px-3 text-xs text-indigo-600 font-semibold">${v.category}</td>
+          <td class="py-2.5 px-3 text-right">
+            <button onclick="deleteVocab(${v.id})" class="text-xs font-bold text-rose-500 hover:underline">Hapus</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Teacher CRUD: Quiz Questions
+    function addQuizQuestion(e) {
+      e.preventDefault();
+      const db = getDB();
+      db.quizzes.push({
+        id: Date.now(),
+        question: document.getElementById('qz-q').value.trim(),
+        translation: document.getElementById('qz-trans').value.trim(),
+        options: [
+          document.getElementById('qz-opt0').value.trim(),
+          document.getElementById('qz-opt1').value.trim(),
+          document.getElementById('qz-opt2').value.trim(),
+          document.getElementById('qz-opt3').value.trim()
+        ],
+        answer: parseInt(document.getElementById('qz-ans').value, 10)
+      });
+      saveDB(db);
+      e.target.reset();
+      refreshTeacherDashboard();
+      showToast('Soal baru ditambahkan ke kuis!');
+    }
+
+    function deleteQuizQuestion(id) {
+      const db = getDB();
+      db.quizzes = db.quizzes.filter(q => q.id !== id);
+      saveDB(db);
+      refreshTeacherDashboard();
+      showToast('Soal kuis dihapus.');
+    }
+
+    function renderTeacherQuizBank() {
+      const db = getDB();
+      document.getElementById('teacher-quiz-list').innerHTML = db.quizzes.map((q, i) => `
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-2">
+            <p class="text-sm font-extrabold text-slate-900">${i + 1}. ${q.question}</p>
+            <button onclick="deleteQuizQuestion(${q.id})" class="text-xs font-bold text-rose-500 hover:underline shrink-0">Hapus</button>
+          </div>
+          <p class="text-xs italic text-slate-500 mt-1">Arti: ${q.translation}</p>
+          <ul class="mt-2 space-y-1 text-xs">
+            ${q.options.map((opt, idx) => `
+              <li class="${idx === q.answer ? 'font-extrabold text-emerald-700' : 'text-slate-600'}">
+                ${['A', 'B', 'C', 'D'][idx]}. ${opt} ${idx === q.answer ? '✓ (Kunci)' : ''}
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
